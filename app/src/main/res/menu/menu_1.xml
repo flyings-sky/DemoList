@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    >
+    <item
+        android:id="@+id/action_search"
+        android:title="@string/menu1_search_title"
+        android:icon="@drawable/search"
+        app:showAsAction="ifRoom"
+        />
+    <!--
+    ifRoom 如果有针对这个项目的空间，则只会把它放到操作栏中
+    withText 操作项也要包含文本（通过android:title属性来定义的）。可以把这个值与其他的Flag设置放到一起，通过管道符“|”来分离它们。
+    never 这个项目不会放到操作栏中
+    always始终包这个项目放到操作栏中。要避免使用这个设置，除非在操作栏中始终显示这个项目是非常关键的。设置多个项目作为始终显示的操作项会导致操作栏中其他的UI溢出。
+    icollapseActiionView 它定义了跟这个操作项关联的可折叠的操作View对象（用android:actionViewLayout来声明）。这个关键词在API级别14中被引入。
+    -->
+    <item
+        android:id="@+id/action_settings"
+        android:title="@string/menu1_settings_title"
+        app:showAsAction="never"
+        />
+
+</menu>
