@@ -16,6 +16,7 @@
             </intent-filter>
         </activity>
         <activity android:name=".TestMenuActivity"/>
+        <activity android:name=".TestRecycleActivity"/>
     </application>
 
 </manifest>
