@@ -3,19 +3,11 @@
     android:orientation="vertical" android:layout_width="match_parent"
     android:layout_height="match_parent">
     <Button
-    android:layout_width="wrap_content"
-    android:layout_height="wrap_content"
-    android:layout_gravity="center"
-    android:text="ShutDown"
-    android:id="@+id/id_activity_recycle_bt01"
-    />
-
-    <Button
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_gravity="center"
-        android:text="next"
-        android:id="@+id/id_activity_recycle_bt02"
+        android:text="ShutDown"
+        android:id="@+id/id_activity_recycle_next_bt01"
         />
 
 </LinearLayout>

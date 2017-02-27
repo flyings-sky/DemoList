@@ -1,7 +1,10 @@
 package andfans.com.demolist;
 
+import android.content.Intent;
 import android.os.Bundle;
+import android.os.Process;
 import android.util.Log;
+import android.widget.Toast;
 
 public class MainActivity extends BaseActivity{
 
@@ -17,9 +20,30 @@ public class MainActivity extends BaseActivity{
     }
 
     @Override
+    protected void onNewIntent(Intent intent) {
+        super.onNewIntent(intent);
+    }
+
+    @Override
+    protected void onSaveInstanceState(Bundle outState) {
+        super.onSaveInstanceState(outState);
+        Log.e(TAG,"onSaveInstanceState");
+    }
+
+    @Override
+    protected void onRestoreInstanceState(Bundle state) {
+        super.onRestoreInstanceState(state);
+        Log.e(TAG,"onRestoreInstanceState");
+
+    }
+
+    @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         Log.e(TAG,"onCreate");
+//        int pid = Process.myPid();
+//        Log.e(TAG,pid+"");
+//        Toast.makeText(this,""+pid,Toast.LENGTH_LONG).show();
     }
 
     @Override

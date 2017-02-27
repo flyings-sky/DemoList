@@ -1,8 +1,5 @@
 package andfans.com.demolist;
 
-import android.app.ActivityManager;
-import android.content.Context;
-import android.content.Intent;
 import android.os.Bundle;
 import android.os.Process;
 import android.support.annotation.Nullable;
@@ -12,35 +9,23 @@ import android.view.View;
 import android.widget.Button;
 
 /**
- * 测试证明程序执行System.exit(0)之后，onStop,onPause,onDestroy全部都不会执行
- * Created by 兆鹏 on 2017/2/26.
+ * Created by 兆鹏 on 2017/2/27.
  */
-public class TestRecycleActivity extends AppCompatActivity {
-    private Button bt1,bt2;
-    private static final String TAG = ".TestRecycleActivity";
-    private Context context;
+public class TestRecycleNextActivity extends AppCompatActivity {
+    private Button bt;
+    private static final String TAG = ".RecycleNextActivity";
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_recycle_test);
+        setContentView(R.layout.activity_recycle_next_test);
         Log.e(TAG,"onCreate");
 //        int pid = Process.myPid();
 //        Log.e(TAG,pid+"");
-//        ActivityManager.RunningAppProcessInfo info = ((ActivityManager)context.getSystemService(Context.ACTIVITY_SERVICE)).getRunningAppProcesses().get(0);
-        context = this;
-        bt1 = (Button) findViewById(R.id.id_activity_recycle_bt01);
-        bt2 = (Button) findViewById(R.id.id_activity_recycle_bt02);
-        bt1.setOnClickListener(new View.OnClickListener() {
+        bt = (Button) findViewById(R.id.id_activity_recycle_next_bt01);
+        bt.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 System.exit(0);
-            }
-        });
-
-        bt2.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                startActivity(new Intent(context,TestRecycleNextActivity.class));
             }
         });
     }
