@@ -1,7 +1,8 @@
 package andfans.com.demolist;
 
+import android.content.Context;
+import android.content.Intent;
 import android.os.Bundle;
-import android.os.Process;
 import android.support.annotation.Nullable;
 import android.support.v7.app.AppCompatActivity;
 import android.util.Log;
@@ -12,20 +13,30 @@ import android.widget.Button;
  * Created by 兆鹏 on 2017/2/27.
  */
 public class TestRecycleNextActivity extends AppCompatActivity {
-    private Button bt;
+    private Button bt1,bt2;
     private static final String TAG = ".RecycleNextActivity";
+    private Context context;
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_recycle_next_test);
         Log.e(TAG,"onCreate");
+        context = this;
 //        int pid = Process.myPid();
 //        Log.e(TAG,pid+"");
-        bt = (Button) findViewById(R.id.id_activity_recycle_next_bt01);
-        bt.setOnClickListener(new View.OnClickListener() {
+        bt1 = (Button) findViewById(R.id.id_activity_recycle_next_bt01);
+        bt2 = (Button) findViewById(R.id.id_activity_recycle_next_bt02);
+
+        bt1.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 System.exit(0);
+            }
+        });
+        bt2.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                startActivity(new Intent(context,TestRecycleActivity.class));
             }
         });
     }
@@ -65,6 +76,12 @@ public class TestRecycleNextActivity extends AppCompatActivity {
     protected void onPause() {
         super.onPause();
         Log.e(TAG,"onPause");
+    }
+
+    @Override
+    protected void onNewIntent(Intent intent) {
+        super.onNewIntent(intent);
+        Log.e(TAG,"onNewIntent");
     }
 
     @Override

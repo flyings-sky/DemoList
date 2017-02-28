@@ -1,12 +1,12 @@
 package andfans.com.demolist;
 
-import android.app.ActivityManager;
 import android.content.Context;
 import android.content.Intent;
+import android.content.pm.PackageManager;
 import android.os.Bundle;
-import android.os.Process;
 import android.support.annotation.Nullable;
 import android.support.v7.app.AppCompatActivity;
+import android.test.mock.MockPackageManager;
 import android.util.Log;
 import android.view.View;
 import android.widget.Button;
@@ -16,7 +16,7 @@ import android.widget.Button;
  * Created by 兆鹏 on 2017/2/26.
  */
 public class TestRecycleActivity extends AppCompatActivity {
-    private Button bt1,bt2;
+    private Button bt1,bt2,bt3;
     private static final String TAG = ".TestRecycleActivity";
     private Context context;
     @Override
@@ -30,6 +30,7 @@ public class TestRecycleActivity extends AppCompatActivity {
         context = this;
         bt1 = (Button) findViewById(R.id.id_activity_recycle_bt01);
         bt2 = (Button) findViewById(R.id.id_activity_recycle_bt02);
+        bt3 = (Button) findViewById(R.id.id_activity_recycle_bt03);
         bt1.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -40,7 +41,19 @@ public class TestRecycleActivity extends AppCompatActivity {
         bt2.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                startActivity(new Intent(context,TestRecycleNextActivity.class));
+                Intent i = new Intent();
+//                PackageManager p = new MockPackageManager();
+//                p.queryIntentActivities(i,PackageManager.MATCH_DEFAULT_ONLY);
+//                p.resolveActivity(i,PackageManager.MATCH_DEFAULT_ONLY);
+                i.setAction("aaaa");
+                startActivity(i);
+            }
+        });
+
+        bt3.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                startActivity(new Intent(context,TestRecycleActivity.class));
             }
         });
     }
@@ -56,6 +69,12 @@ public class TestRecycleActivity extends AppCompatActivity {
         super.onRestoreInstanceState(state);
         Log.e(TAG,"onRestoreInstanceState");
 
+    }
+
+    @Override
+    protected void onNewIntent(Intent intent) {
+        super.onNewIntent(intent);
+        Log.e(TAG,"onNewIntent");
     }
 
     @Override

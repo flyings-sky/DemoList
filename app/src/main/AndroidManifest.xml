@@ -8,16 +8,29 @@
         android:label="@string/app_name"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".MainActivity">
+        <activity
+            android:name=".MainActivity"
+            >
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name=".TestMenuActivity"/>
-        <activity android:name=".TestRecycleActivity"/>
-        <activity android:name=".TestRecycleNextActivity"/>
+        <activity
+            android:name=".TestMenuActivity"
+            />
+        <activity
+            android:name=".TestRecycleActivity"
+            android:launchMode="singleTop"
+            />
+        <activity android:name=".TestRecycleNextActivity">
+            <intent-filter>
+                <action android:name="aaaa"/>
+                <!--<category android:name="AAAA"/>-->
+                <category android:name="android.intent.category.DEFAULT"/>
+            </intent-filter>
+        </activity>
     </application>
 
 </manifest>
