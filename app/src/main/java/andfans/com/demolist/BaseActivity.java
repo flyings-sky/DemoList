@@ -1,5 +1,6 @@
 package andfans.com.demolist;
 
+import android.app.IntentService;
 import android.app.ListActivity;
 import android.content.Intent;
 import android.os.Bundle;
@@ -7,13 +8,14 @@ import android.view.View;
 import android.widget.ArrayAdapter;
 import android.widget.ListView;
 
+import java.util.HashMap;
+
 /**
  *
  * Created by 兆鹏 on 2017/2/2.
  */
 public abstract class BaseActivity extends ListActivity {
     abstract ClassAndName [] getDatas();
-
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);

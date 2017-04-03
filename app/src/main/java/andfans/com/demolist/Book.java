@@ -1,9 +1,12 @@
 package andfans.com.demolist;
 
+
 import android.os.Parcel;
 import android.os.Parcelable;
 
+
 /**
+ *
  * Created by 兆鹏 on 2017/2/28.
  */
 public class Book implements Parcelable {
@@ -13,6 +16,8 @@ public class Book implements Parcelable {
         bookId = in.readInt();
         bookName = in.readString();
     }
+
+
 
 
     public static final Creator<Book> CREATOR = new Creator<Book>() {

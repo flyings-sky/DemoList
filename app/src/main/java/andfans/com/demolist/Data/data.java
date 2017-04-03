@@ -1,4 +1,4 @@
-package andfans.com.demolist;
+package andfans.com.demolist.Data;
 
 import java.io.Serializable;
 

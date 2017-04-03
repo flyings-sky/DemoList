@@ -2,18 +2,22 @@ package andfans.com.demolist;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.os.Handler;
+import android.os.Looper;
+import android.os.Message;
 import android.os.Process;
 import android.util.Log;
 import android.widget.Toast;
 
 public class MainActivity extends BaseActivity{
-
     private static final String TAG = ".MainActivity";
     @Override
     ClassAndName[] getDatas() {
         ClassAndName[] datas = {
                 new ClassAndName(TestMenuActivity.class,"菜单测试Demo"),
-                new ClassAndName(TestRecycleActivity.class,"activity生命周期测试")
+                new ClassAndName(TestRecycleActivity.class,"activity生命周期测试"),
+                new ClassAndName(TestAsyncTask.class,"AsyncTask测试"),
+                new ClassAndName(TestIPC.class,"Android中的IPC机制")
         };
 
         return datas;

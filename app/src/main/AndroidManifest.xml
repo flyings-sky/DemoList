@@ -17,13 +17,20 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
+        <activity android:name=".TestIPC"
+            android:process=":a"
+            />
+        <activity android:name=".TestIPCBundle"
+            android:process=":b"
+            />
+        <activity android:name=".TestAsyncTask"/>
         <activity
             android:name=".TestMenuActivity"
             />
         <activity
             android:name=".TestRecycleActivity"
-            android:launchMode="singleTop"
             />
+
         <activity android:name=".TestRecycleNextActivity">
             <intent-filter>
                 <action android:name="aaaa"/>
