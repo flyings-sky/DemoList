@@ -3,27 +3,29 @@ package andfans.com.demolist.Data;
 import android.os.Parcel;
 import android.os.Parcelable;
 
+import java.io.Serializable;
+
 /**
  * 使用懒汉式单例
  * Created by 兆鹏 on 2017/4/3.
  */
-public class User implements Parcelable{
+public class User implements Serializable,Parcelable{
     private String id;
     private String name;
     private volatile static User user;
-    public static User getUser(String id, String name){
-        if(user == null){
-            synchronized (User.class){
-                if(user == null){
-                    user = new User(id,name);
-                    return user;
-                }
-            }
-        }
-        return user;
-    }
+//    public static User getUser(String id, String name){
+//        if(user == null){
+//            synchronized (User.class){
+//                if(user == null){
+//                    user = new User(id,name);
+//                    return user;
+//                }
+//            }
+//        }
+//        return user;
+//    }
 
-    private User(String id, String name) {
+    public User(String id, String name) {
         this.id = id;
         this.name = name;
     }

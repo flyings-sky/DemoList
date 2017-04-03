@@ -3,10 +3,16 @@ package andfans.com.demolist;
 import android.app.Activity;
 import android.content.Intent;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.TextView;
+
+import java.io.File;
+import java.io.FileInputStream;
+import java.io.IOException;
+import java.io.ObjectInputStream;
 
 import andfans.com.demolist.Data.User;
 
@@ -38,7 +44,7 @@ public class TestIPCBundle extends Activity {
                 但是在每一个进程中都会有唯一一个User对象，所以程序只有第一次返回的结果是用户输入的结果，
                 除了第一次，返回的都是第一次我们输入的消息
                  */
-                User user = User.getUser(str[0],str[1]);
+                User user = new User(str[0],str[1]);
                 Bundle bundle = new Bundle();
                 bundle.putParcelable("response",user);
                 Intent intent = new Intent();

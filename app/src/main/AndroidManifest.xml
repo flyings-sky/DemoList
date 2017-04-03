@@ -1,7 +1,9 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="andfans.com.demolist">
-
+    <uses-permission android:name="android.permission.MOUNT_UNMOUNT_FILESYSTEMS"/>
+    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE"/>
+    <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />
     <application
         android:allowBackup="true"
         android:icon="@mipmap/ic_launcher"
@@ -19,6 +21,9 @@
         </activity>
         <activity android:name=".TestIPC"
             android:process=":a"
+            />
+        <activity android:name=".TestIpcFile"
+            android:process=":b"
             />
         <activity android:name=".TestIPCBundle"
             android:process=":b"

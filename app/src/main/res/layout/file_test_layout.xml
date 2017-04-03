@@ -4,26 +4,24 @@
     android:layout_height="match_parent"
     android:gravity="center_horizontal"
     >
-    <Button
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Bundle"
-        android:id="@+id/id_activity_ipc_bundle"
-        android:textSize="20sp"
-        />
-    <Button
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="File"
-        android:id="@+id/id_activity_ipc_file"
-        android:textSize="20sp"
-        />
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:id="@+id/id_activity_file_tv01"
         android:textSize="20sp"
-        android:id="@+id/id_activity_ipc_response"
         />
-
+    <EditText
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/id_activity_file_tv02"
+        android:textSize="20sp"
+        />
+    <Button
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/id_activity_file_bt01"
+        android:textSize="20sp"
+        android:text="send"
+        />
 
 </LinearLayout>

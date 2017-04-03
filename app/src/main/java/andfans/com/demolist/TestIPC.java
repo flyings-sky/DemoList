@@ -4,12 +4,17 @@ import android.app.Activity;
 import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
+import android.os.Environment;
 import android.util.ArrayMap;
 import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.TextView;
 
+import java.io.File;
+import java.io.FileOutputStream;
+import java.io.IOException;
+import java.io.ObjectOutputStream;
 import java.util.HashMap;
 import java.util.Map;
 
@@ -20,23 +25,46 @@ import andfans.com.demolist.Data.User;
  * Created by 兆鹏 on 2017/4/3.
  */
 public class TestIPC extends Activity {
-    private Context context;
+    private static Context context;
     private TextView textView;
-    Map<Integer,String> data = new ArrayMap<>();
+    private Button btFile;
+    public static final String FILE_PATH = Environment.getExternalStorageDirectory().getAbsolutePath()+"/Test/file.txt";
+    static class MyThread extends Thread{
+        @Override
+        public void run() {
+            super.run();
+            User user = new User("File","fileValue");
+            File file = new File(TestIPC.FILE_PATH);
+            ObjectOutputStream objectOutputStream = null;
+            try {
+                objectOutputStream = new ObjectOutputStream(new FileOutputStream(file));
+                objectOutputStream.writeObject(user);
+            }catch (IOException e){
+                e.printStackTrace();
+            }
+            Intent intent = new Intent(context,TestIpcFile.class);
+            context.startActivity(intent);
+        }
+    }
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.ipc_test_layout);
         context = this;
-        data.put(1,"aaaaa");
-        data.put(1,"bbbbbbbbb");
-        Log.e("Bundle",data.get(1));
         textView = (TextView) findViewById(R.id.id_activity_ipc_response);
+        btFile = (Button) findViewById(R.id.id_activity_ipc_file);
         Button btBundle = (Button) findViewById(R.id.id_activity_ipc_bundle);
+        btFile.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Thread t = new MyThread();
+                t.start();
+            }
+        });
         btBundle.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                User user = User.getUser("11","小明");
+                User user = new User("11","小明");
                 Intent intent = new Intent(context,TestIPCBundle.class);
                 Bundle bundle = new Bundle();
                 bundle.putParcelable("user",user);
