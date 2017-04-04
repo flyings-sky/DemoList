@@ -19,6 +19,12 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
+        <service android:name=".TestIPC$MessengerService"
+            android:process=":a"
+            />
+        <activity android:name=".IPC.TestIPCMessenger"
+            android:process=":b"
+            />
         <activity android:name=".TestIPC"
             android:process=":a"
             />

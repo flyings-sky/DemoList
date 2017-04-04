@@ -3,8 +3,6 @@ package andfans.com.demolist;
 import android.app.Activity;
 import android.os.Bundle;
 import android.util.Log;
-import android.widget.Button;
-import android.widget.EditText;
 import android.widget.TextView;
 
 import java.io.File;
@@ -20,8 +18,6 @@ import andfans.com.demolist.Data.User;
  */
 public class TestIpcFile extends Activity{
     private static TextView tvGet;
-    private EditText tvSend;
-    private Button btSend;
     static User user;
     static class MyThread extends Thread{
         @Override

@@ -9,7 +9,7 @@ import java.io.Serializable;
  * 使用懒汉式单例
  * Created by 兆鹏 on 2017/4/3.
  */
-public class User implements Serializable,Parcelable{
+public class User implements Parcelable,Serializable{
     private String id;
     private String name;
     private volatile static User user;
