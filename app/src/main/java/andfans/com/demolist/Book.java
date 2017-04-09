@@ -17,8 +17,15 @@ public class Book implements Parcelable {
         bookName = in.readString();
     }
 
+    public Book(int bookId, String bookName) {
+        this.bookId = bookId;
+        this.bookName = bookName;
+    }
 
-
+    @Override
+    public String toString() {
+        return bookId+":  "+bookName;
+    }
 
     public static final Creator<Book> CREATOR = new Creator<Book>() {
         @Override

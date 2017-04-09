@@ -15,9 +15,10 @@ import android.widget.TextView;
 
 import andfans.com.demolist.Data.User;
 import andfans.com.demolist.R;
-import andfans.com.demolist.TestIPC;
+import andfans.com.demolist.Services.MessengerService;
 
 /**
+ *
  * Created by 兆鹏 on 2017/4/3.
  */
 public class TestIPCMessenger extends Activity {
@@ -65,35 +66,17 @@ public class TestIPCMessenger extends Activity {
             }
 
         }
-
         @Override
         public void onServiceDisconnected(ComponentName name) {
 
         }
     };
     private void init() {
-        Intent intent = new Intent(this, TestIPC.MessengerService.class);
+        Intent intent = new Intent(this, MessengerService.class);
         bindService(intent,conn,BIND_AUTO_CREATE);
-        //Intent intent = new Intent("andfans.com.andfans_csdn.ser");
-
-//        Log.e("Messenger","1");
-//        Intent intent1 = new Intent("andfans.com.andfans_csdn.ser");
-//        Log.e("Messenger","2");
-//        intent1.setComponent(new ComponentName("andfans.com.andfans_csdn","andfans.com.andfans_csdn.MainActivity$MyService"));
-//        Log.e("Messenger","3");
-//        startService(intent1);
-
-
-//        Log.e("Messenger","5");
 //        Intent intent2 = new Intent("andfans.com.andfans_csdn.ser");
-//        Log.e("Messenger","6");
-//        intent2.setPackage("andfans.com.andfans_csdn");
-//        Log.e("Messenger","7");
 //        intent2.setClassName("andfans.com.andfans_csdn","andfans.com.andfans_csdn.MainActivity$MyService");
-//        //intent2.setComponent(new ComponentName("andfans.com.andfans_csdn","andfans.com.andfans_csdn.MainActivity$MyService"));
-//        Log.e("Messenger","8");
 //        bindService(intent2,conn,BIND_AUTO_CREATE);
-//        Log.e("Messenger","9");
     }
 
     @Override

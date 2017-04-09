@@ -19,9 +19,6 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <service android:name=".TestIPC$MessengerService"
-            android:process=":a"
-            />
         <activity android:name=".IPC.TestIPCMessenger"
             android:process=":b"
             />
@@ -33,6 +30,15 @@
             />
         <activity android:name=".TestIPCBundle"
             android:process=":b"
+            />
+        <activity android:name=".IPC.TestIPCAidl"
+            android:process=":b"
+            />
+        <service android:name=".Services.MessengerService"
+            android:process=":a"
+            />
+        <service android:name=".Services.AIDLService"
+            android:process=":a"
             />
         <activity android:name=".TestAsyncTask"/>
         <activity

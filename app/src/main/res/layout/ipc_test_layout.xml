@@ -25,6 +25,13 @@
         android:id="@+id/id_activity_ipc_messenger"
         android:textSize="20sp"
         />
+    <Button
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="AIDL"
+        android:id="@+id/id_activity_ipc_aidl"
+        android:textSize="20sp"
+        />
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
