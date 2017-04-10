@@ -24,6 +24,7 @@ import java.io.IOException;
 import java.io.ObjectOutputStream;
 
 import andfans.com.demolist.Data.User;
+import andfans.com.demolist.IPC.BinderPool.BinderPoolActivity;
 import andfans.com.demolist.IPC.TestIPCAidl;
 import andfans.com.demolist.IPC.TestIPCMessenger;
 import andfans.com.demolist.IPC.TestIPCSocketClient;
@@ -35,7 +36,7 @@ import andfans.com.demolist.IPC.TestIPCSocketClient;
 public class TestIPC extends Activity {
     private static Context context;
     private TextView textView;
-    private Button btFile,btMessenger,btAidl,btSocket;
+    private Button btFile,btMessenger,btAidl,btSocket,btBinderPool;
     public static final String FILE_PATH = Environment.getExternalStorageDirectory().getAbsolutePath()+"/Test/file.txt";
 
     static class MyThread extends Thread{
@@ -62,11 +63,19 @@ public class TestIPC extends Activity {
         setContentView(R.layout.ipc_test_layout);
         context = this;
         textView = (TextView) findViewById(R.id.id_activity_ipc_response);
+        btBinderPool = (Button) findViewById(R.id.id_activity_ipc_binderpool);
         btSocket = (Button) findViewById(R.id.id_activity_ipc_socket);
         btAidl = (Button) findViewById(R.id.id_activity_ipc_aidl);
         btMessenger = (Button) findViewById(R.id.id_activity_ipc_messenger);
         btFile = (Button) findViewById(R.id.id_activity_ipc_file);
         Button btBundle = (Button) findViewById(R.id.id_activity_ipc_bundle);
+        btBinderPool.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(context, BinderPoolActivity.class);
+                startActivity(intent);
+            }
+        });
         btSocket.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {

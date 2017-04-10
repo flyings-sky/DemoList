@@ -47,6 +47,14 @@
         <service android:name=".Services.AIDLService"
             android:process=":a"
             />
+        <service android:name=".IPC.BinderPool.BinderPoolService"
+            android:process=":a"
+            android:exported="true"
+            />
+
+        <activity android:name=".IPC.BinderPool.BinderPoolActivity"
+            android:process=":b"
+            />
         <activity android:name=".TestAsyncTask"/>
         <activity
             android:name=".TestMenuActivity"
@@ -54,7 +62,6 @@
         <activity
             android:name=".TestRecycleActivity"
             />
-
         <activity android:name=".TestRecycleNextActivity">
             <intent-filter>
                 <action android:name="aaaa"/>

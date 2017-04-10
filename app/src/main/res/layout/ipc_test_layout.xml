@@ -39,6 +39,13 @@
         android:id="@+id/id_activity_ipc_socket"
         android:textSize="20sp"
         />
+    <Button
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="BinderPool"
+        android:id="@+id/id_activity_ipc_binderpool"
+        android:textSize="20sp"
+        />
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
