@@ -21,6 +21,15 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
+        <provider
+            android:authorities="andfans.com.demolist.IPC.provider"
+            android:name=".IPC.BookProvider"
+            android:process=":a"
+            android:permission="com.ryg.PROVIDER"
+            />
+        <activity android:name=".IPC.ProviderActivity"
+            android:process=":b"
+            />
         <activity android:name=".IPC.TestIPCMessenger"
             android:process=":b"
             />
@@ -51,7 +60,6 @@
             android:process=":a"
             android:exported="true"
             />
-
         <activity android:name=".IPC.BinderPool.BinderPoolActivity"
             android:process=":b"
             />

@@ -38,7 +38,7 @@ public class TestIPCBundle extends Activity {
                 但是在每一个进程中都会有唯一一个User对象，所以程序只有第一次返回的结果是用户输入的结果，
                 除了第一次，返回的都是第一次我们输入的消息
                  */
-                User user = new User(str[0],str[1]);
+                User user = new User(Integer.parseInt(str[0]),str[1],true);
                 Bundle bundle = new Bundle();
                 bundle.putParcelable("response",user);
                 Intent intent = new Intent();

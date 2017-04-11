@@ -56,7 +56,7 @@ public class TestIPCMessenger extends Activity {
             message.what = 11;
             message.replyTo = mGetMessenger;
             Bundle bundle = new Bundle();
-            bundle.putParcelable("user",new User("11","22"));
+            bundle.putParcelable("user",new User(11,"22",true));
             message.setData(bundle);
             message.arg1 = 555;
             try {

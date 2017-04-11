@@ -1,5 +1,6 @@
 package andfans.com.demolist.Data;
 
+import android.app.Service;
 import android.os.Parcel;
 import android.os.Parcelable;
 
@@ -10,8 +11,12 @@ import java.io.Serializable;
  * Created by 兆鹏 on 2017/4/3.
  */
 public class User implements Parcelable,Serializable{
-    private String id;
+    private int id;
     private String name;
+    private boolean sex;
+
+
+
     private volatile static User user;
 //    public static User getUser(String id, String name){
 //        if(user == null){
@@ -25,9 +30,11 @@ public class User implements Parcelable,Serializable{
 //        return user;
 //    }
 
-    public User(String id, String name) {
+
+    public User(int id, String name, boolean sex) {
         this.id = id;
         this.name = name;
+        this.sex = sex;
     }
 
     @Override
@@ -36,8 +43,9 @@ public class User implements Parcelable,Serializable{
     }
 
     protected User(Parcel in) {
-        id = in.readString();
+        id = in.readInt();
         name = in.readString();
+        sex = in.readByte() != 0;
     }
 
     public static final Creator<User> CREATOR = new Creator<User>() {
@@ -59,7 +67,8 @@ public class User implements Parcelable,Serializable{
 
     @Override
     public void writeToParcel(Parcel dest, int flags) {
-        dest.writeString(id);
+        dest.writeInt(id);
         dest.writeString(name);
+        dest.writeByte((byte)(sex ? 1:0));
     }
 }

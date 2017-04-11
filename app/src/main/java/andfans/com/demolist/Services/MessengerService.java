@@ -36,7 +36,7 @@ public class MessengerService extends Service {
                     Messenger messenger = msg.replyTo;
                     Message reply = Message.obtain(null,2);
                     Bundle replyData = new Bundle();
-                    replyData.putParcelable("reply",new User("11你好","我已经收到你的消息"));
+                    replyData.putParcelable("reply",new User(22,"我已经收到你的消息",true));
                     reply.setData(replyData);
                     try {
                         messenger.send(reply);

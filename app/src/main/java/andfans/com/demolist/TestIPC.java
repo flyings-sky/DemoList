@@ -25,6 +25,7 @@ import java.io.ObjectOutputStream;
 
 import andfans.com.demolist.Data.User;
 import andfans.com.demolist.IPC.BinderPool.BinderPoolActivity;
+import andfans.com.demolist.IPC.ProviderActivity;
 import andfans.com.demolist.IPC.TestIPCAidl;
 import andfans.com.demolist.IPC.TestIPCMessenger;
 import andfans.com.demolist.IPC.TestIPCSocketClient;
@@ -36,14 +37,14 @@ import andfans.com.demolist.IPC.TestIPCSocketClient;
 public class TestIPC extends Activity {
     private static Context context;
     private TextView textView;
-    private Button btFile,btMessenger,btAidl,btSocket,btBinderPool;
+    private Button btFile,btMessenger,btAidl,btSocket,btBinderPool,btContentProvider;
     public static final String FILE_PATH = Environment.getExternalStorageDirectory().getAbsolutePath()+"/Test/file.txt";
 
     static class MyThread extends Thread{
         @Override
         public void run() {
             super.run();
-            User user = new User("File","fileValue");
+            User user = new User(22,"fileValue",true);
             File file = new File(TestIPC.FILE_PATH);
             ObjectOutputStream objectOutputStream = null;
             try {
@@ -63,12 +64,20 @@ public class TestIPC extends Activity {
         setContentView(R.layout.ipc_test_layout);
         context = this;
         textView = (TextView) findViewById(R.id.id_activity_ipc_response);
+        btContentProvider = (Button) findViewById(R.id.id_activity_ipc_contentProvider);
         btBinderPool = (Button) findViewById(R.id.id_activity_ipc_binderpool);
         btSocket = (Button) findViewById(R.id.id_activity_ipc_socket);
         btAidl = (Button) findViewById(R.id.id_activity_ipc_aidl);
         btMessenger = (Button) findViewById(R.id.id_activity_ipc_messenger);
         btFile = (Button) findViewById(R.id.id_activity_ipc_file);
         Button btBundle = (Button) findViewById(R.id.id_activity_ipc_bundle);
+        btContentProvider.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(context, ProviderActivity.class);
+                startActivity(intent);
+            }
+        });
         btBinderPool.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -100,7 +109,7 @@ public class TestIPC extends Activity {
         btBundle.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                User user = new User("11","小明");
+                User user = new User(11,"小明",true);
                 Intent intent = new Intent(context,TestIPCBundle.class);
                 Bundle bundle = new Bundle();
                 bundle.putParcelable("user",user);
